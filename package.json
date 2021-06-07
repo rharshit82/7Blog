@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
   },
   "author": "Harshit Raj",
   "license": "ISC",
@@ -18,5 +20,8 @@
     "dotenv": "^10.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.13"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
   }
 }

@@ -1,18 +1,27 @@
-import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 const saltRounds = 10
 import User from '../models/userModel.js'
+import generateToken from '../util/generateToken.js'
 
-export const loginController = (req, res) => {
+export const loginController = async (req, res) => {
   const { email, password } = req.body
-  res.send('Hi')
+  const user = User.findOne({ email })
+  const isUser = bcrypt.compare(user.password, password)
+  if (!isUser) {
+    res.status(401).json({ message: 'Wrong Credentials' })
+  }
+  generateToken(user.id)
+  return res.status(201).send({ message: 'Log in Success' })
 }
+
 export const registerController = async (req, res) => {
   const { name, email, password } = req.body
-  const hashedPassword = await bcrypt.hash(password, saltRounds)
-  const user = User.findOne({ email })
-  if (user) return res.status(409).json({ message: 'User Already Exists' })
+  const user = await User.findOne({ email })
+  if (user) {
+    return res.status(409).json({ message: 'User Already Exists' })
+  }
   try {
+    const hashedPassword = await bcrypt.hash(password, saltRounds)
     User.create(
       {
         name,
@@ -21,15 +30,14 @@ export const registerController = async (req, res) => {
       },
       (err, user) => {
         if (err) {
-          return res.status(500).json({ err })
+          return res.status(500).json({ message: `${err}` })
         } else {
-          const JWT_KEY = process.env.JWT_KEY
-          jwt.sign({ id: user._id }, JWT_KEY, { expiresIn: '30d' })
+          generateToken(user._id)
           return res.status(201).json({ message: 'User Registered' })
         }
       }
     )
   } catch (error) {
-    console.log(error)
+    return res.status(500).json({ message: `${err}` })
   }
 }

@@ -15,6 +15,11 @@ const userModel = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
