@@ -12,7 +12,7 @@ dbConnect()
 //Initialising Express
 const app = express()
 //Bodyparser
-app.use(express.urlencoded({ extended: true }))
+// app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 //Basic Routes
