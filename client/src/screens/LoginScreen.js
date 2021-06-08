@@ -11,15 +11,15 @@ const LoginScreen = () => {
   })
   const loginUser = async (e) => {
     e.preventDefault()
-    // alert.show('Hi')
     try {
       let user = await axios.post('/auth/login', {
         email: formData.email,
         password: formData.password,
       })
-
-      const msg = user.data.message
-      alert.show(msg, { type: 'success' })
+      localStorage.setItem('userInfo', JSON.stringify(user.data))
+      if (user.status === 201) {
+        alert.show('Login Success', { type: 'success' })
+      }
     } catch (err) {
       const msg = err.response ? err.response.data.message : err
       alert.show(msg, { type: 'error' })

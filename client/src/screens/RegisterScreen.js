@@ -17,9 +17,9 @@ const RegisterScreen = () => {
         email: formData.email,
         password: formData.password,
       })
-
-      const msg = user.data.message
-      alert.show(msg, { type: 'success' })
+      localStorage.setItem('userInfo', JSON.stringify(user.data))
+      if (user.status === 201)
+        alert.show('Registration Successful', { type: 'success' })
     } catch (err) {
       const msg = err.response ? err.response.data.message : err
       alert.show(msg, { type: 'error' })

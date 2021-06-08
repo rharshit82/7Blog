@@ -1,7 +1,8 @@
 import express from 'express'
-
+import { addPost } from '../controllers/postController.js'
+import { protect } from '../middlewares/checkAuth.js'
 const router = express.Router()
 
-router.get('/', (req, res) => res.send('working'))
+router.post('/add_post', protect, addPost)
 
 export default router
