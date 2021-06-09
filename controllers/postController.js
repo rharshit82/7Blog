@@ -15,3 +15,13 @@ export const addPost = (req, res) => {
     }
   )
 }
+
+export const fetchPosts = async (req, res) => {
+  try {
+    const posts = await Post.find({})
+    // console.log(posts)
+    return res.status(201).send(posts)
+  } catch (err) {
+    return res.status(404).json({ message: 'No Post Found' })
+  }
+}

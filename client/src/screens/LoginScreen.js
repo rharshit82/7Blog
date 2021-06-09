@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import { useAlert } from 'react-alert'
 
-const LoginScreen = () => {
+const LoginScreen = ({ setIsAuth }) => {
   const alert = useAlert()
   const [formData, setFormData] = useState({
     email: '',
@@ -18,6 +18,7 @@ const LoginScreen = () => {
       })
       localStorage.setItem('userInfo', JSON.stringify(user.data))
       if (user.status === 201) {
+        setIsAuth(true)
         alert.show('Login Success', { type: 'success' })
       }
     } catch (err) {

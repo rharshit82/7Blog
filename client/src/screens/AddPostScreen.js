@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useAlert } from 'react-alert'
 import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
-const AddPostScreen = ({ history }) => {
+import { useHistory } from 'react-router-dom'
+
+const AddPostScreen = () => {
+  const history = useHistory()
   const alert = useAlert()
   const [formData, setFormData] = useState({ title: '', content: '' })
 

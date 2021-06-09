@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import { useAlert } from 'react-alert'
-const RegisterScreen = () => {
+const RegisterScreen = ({ setIsAuth }) => {
   const alert = useAlert()
   const [formData, setFormData] = useState({
     name: '',
@@ -18,8 +18,10 @@ const RegisterScreen = () => {
         password: formData.password,
       })
       localStorage.setItem('userInfo', JSON.stringify(user.data))
-      if (user.status === 201)
+      if (user.status === 201) {
+        setIsAuth(true)
         alert.show('Registration Successful', { type: 'success' })
+      }
     } catch (err) {
       const msg = err.response ? err.response.data.message : err
       alert.show(msg, { type: 'error' })
