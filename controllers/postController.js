@@ -18,7 +18,7 @@ export const addPost = (req, res) => {
 
 export const fetchPosts = async (req, res) => {
   try {
-    const posts = await Post.find({})
+    const posts = await Post.find({}).sort({ createdAt: -1 })
     // console.log(posts)
     return res.status(201).send(posts)
   } catch (err) {
