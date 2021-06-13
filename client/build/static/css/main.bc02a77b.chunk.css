@@ -1,0 +1,2 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu&display=swap);*{font-family:Ubuntu}.posts{width:70%}.sidebar{width:25%;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;align-items:center}main{min-height:300px;padding-top:30px}@media only screen and (max-width:768px){.content{-webkit-flex-direction:column;flex-direction:column}.posts,.sidebar{width:90%}.footer-text{-webkit-flex-direction:column;flex-direction:column}}
+/*# sourceMappingURL=main.bc02a77b.chunk.css.map */
