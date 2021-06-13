@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Loading from '../components/Loading'
-
+import Post from '../components/Post'
+import Sidebar from '../components/Sidebar'
+import Pagination from '../components/Pagination'
 const HomeScreen = () => {
+  //States
   const [posts, setPosts] = useState([])
+  const [postTitles, setPostTitles] = useState([])
   const [loading, setLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(5)
+
+  //UseEffect
   useEffect(() => {
     async function fetchAllPosts() {
       try {
@@ -12,6 +19,7 @@ const HomeScreen = () => {
         if (loading) {
           setPosts(fetch_posts.data)
           setLoading(false)
+          setPostTitles(posts.map((post) => post.title).slice(0, 6))
         }
       } catch (err) {
         console.log(err)
@@ -20,24 +28,39 @@ const HomeScreen = () => {
     fetchAllPosts()
   }, [posts, setPosts, loading])
 
+  //Get current posts
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+  //Change Page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  //Return value
   return (
     <>
-      <h1 className=' text-center'>Posts</h1>
-
-      {loading ? (
-        <Loading />
-      ) : (
-        <div>
-          {posts.map((post) => (
-            <div className='my-4 w-75 mx-auto border' key={post._id}>
-              <h3>{post.title}</h3>
-              <br />
-              <p>{post.content}</p>
-              <br />
-            </div>
-          ))}
+      <div className='d-flex content'>
+        <div className='px-5 posts'>
+          <div>
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={posts.length}
+              paginate={paginate}
+            />
+          </div>
+          <Post posts={currentPosts} loading={loading} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
         </div>
-      )}
+        <div className='sidebar mx-5'>
+          <Sidebar postTitles={postTitles} />
+        </div>
+      </div>
     </>
   )
 }

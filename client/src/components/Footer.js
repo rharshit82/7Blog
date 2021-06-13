@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <Container fluid className='bg-dark text-white mt-3 py-4'>
-        <Row className='my-2'>
+        <Row className='my-2 footer-text'>
           <Col>
             <p>
               Welcome to 7blog. We are the leading Technology blog in the world.
@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
           </Col>
           <Col>
-            <ul>
+            <ul className='list-unstyled'>
               <li>
                 <h5>Our Links</h5>
               </li>

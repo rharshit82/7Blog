@@ -28,7 +28,7 @@ const AddPostScreen = () => {
         '/api/add_post',
         {
           title: formData.title,
-          content: formData.title,
+          content: formData.content,
         },
         config
       )
