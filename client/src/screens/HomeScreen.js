@@ -26,7 +26,10 @@ const HomeScreen = () => {
       }
     }
     fetchAllPosts()
-  }, [posts, setPosts, loading])
+    return () => {
+      setLoading(false)
+    }
+  }, [posts, loading])
 
   //Get current posts
   const indexOfLastPost = currentPage * postsPerPage

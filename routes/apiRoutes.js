@@ -5,7 +5,7 @@ import { isAuth } from '../controllers/isAuth.js'
 const router = express.Router()
 
 router.post('/add_post', protect, addPost)
-router.get('/is_auth', isAuth)
+router.post('/is_auth', isAuth)
 router.get('/fetch_posts', fetchPosts)
 
 export default router

@@ -20,47 +20,38 @@ function App() {
             Authorization: `Bearer ${userInfo.token}`,
           },
         }
-
-        const res = await axios.get('/api/is_auth', config)
-        console.log('Hi')
+        const res = await axios.post('/api/is_auth', {}, config)
         setIsAuth(res.data.isAuth)
       } catch (err) {
         setIsAuth(false)
       }
     }
     checkAuth()
+    return () => {
+      setIsAuth(false)
+    }
   }, [])
   return (
     <Router>
       <header>
-        <Header isAuth={isAuth} setIsAuth={setIsAuth} />
+        <Header isAuth={isAuth} />
       </header>
       <main>
         <Switch>
           <Route exact path='/' component={() => <HomeScreen />} />
           <Route
             path='/register'
-            component={() => (
-              <RegisterScreen isAuth={isAuth} setIsAuth={setIsAuth} />
-            )}
+            component={() => <RegisterScreen setIsAuth={setIsAuth} />}
           />
           <Route
             path='/login'
-            component={() => (
-              <LoginScreen isAuth={isAuth} setIsAuth={setIsAuth} />
-            )}
+            component={() => <LoginScreen setIsAuth={setIsAuth} />}
           />
-          <Route
-            exact
-            path='/add_post'
-            component={() => (
-              <AddPostScreen isAuth={isAuth} setIsAuth={setIsAuth} />
-            )}
-          />
+          <Route exact path='/add_post' component={() => <AddPostScreen />} />
           <Route
             exact
             path='/logout'
-            component={() => <Logout isAuth={isAuth} setIsAuth={setIsAuth} />}
+            component={() => <Logout setIsAuth={setIsAuth} />}
           />
         </Switch>
       </main>
