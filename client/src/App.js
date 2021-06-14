@@ -7,8 +7,11 @@ import RegisterScreen from './screens/RegisterScreen.js'
 import HomeScreen from './screens/HomeScreen.js'
 import LoginScreen from './screens/LoginScreen.js'
 import AddPostScreen from './screens/AddPostScreen.js'
+import PostScreen from './screens/PostScreen'
+import AboutScreen from './screens/AboutScreen'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
+
 function App() {
   const [isAuth, setIsAuth] = useState(false)
   useEffect(() => {
@@ -39,6 +42,8 @@ function App() {
       <main>
         <Switch>
           <Route exact path='/' component={() => <HomeScreen />} />
+          <Route exact path='/about' component={() => <AboutScreen />} />
+
           <Route
             path='/register'
             component={() => <RegisterScreen setIsAuth={setIsAuth} />}
@@ -53,6 +58,7 @@ function App() {
             path='/logout'
             component={() => <Logout setIsAuth={setIsAuth} />}
           />
+          <Route exact path='/post/:id' component={() => <PostScreen />} />
         </Switch>
       </main>
       <footer>

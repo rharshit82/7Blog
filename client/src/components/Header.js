@@ -14,13 +14,10 @@ const Header = ({ isAuth }) => {
     <>
       <Navbar className='mb-3 py-2' bg='dark' expand='lg' variant='dark'>
         <LinkContainer to='/'>
-          <Navbar.Brand className='ms-3'>
-            <div
-              className='d-flex text-center justify-content-center align-items-center'
-              style={{ cusor: 'pointer' }}
-            >
+          <Navbar.Brand className='ms-3 '>
+            <div className='d-flex text-center justify-content-center align-items-center '>
               <img src={siteLogo} style={{ height: '80px' }} alt='7Blog' />
-              <h1>7Blog</h1>
+              <h1 className='site-title'>7Blog</h1>
             </div>
           </Navbar.Brand>
         </LinkContainer>

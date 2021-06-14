@@ -3,8 +3,21 @@
 * {
   font-family: Ubuntu;
 }
+.site-title:hover {
+  cursor: pointer;
+}
+.links:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .posts {
   width: 70%;
+}
+.post {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
 }
 .sidebar {
   width: 25%;
@@ -20,6 +33,9 @@ main {
     flex-direction: column;
   }
   .posts {
+    width: 90%;
+  }
+  .post {
     width: 90%;
   }
   .sidebar {

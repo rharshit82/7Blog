@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 const Footer = () => {
   return (
     <>
@@ -22,8 +23,12 @@ const Footer = () => {
               <li>
                 <h5>Our Links</h5>
               </li>
-              <li>Home</li>
-              <li>About</li>
+              <LinkContainer to='/'>
+                <li className='links'>Home</li>
+              </LinkContainer>
+              <LinkContainer to='/about'>
+                <li className='links'>About</li>
+              </LinkContainer>
             </ul>
           </Col>
         </Row>

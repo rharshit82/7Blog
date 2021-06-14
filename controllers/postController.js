@@ -25,3 +25,17 @@ export const fetchPosts = async (req, res) => {
     return res.status(404).json({ message: 'No Post Found' })
   }
 }
+
+export const fetchPost = async (req, res) => {
+  const { id } = req.body
+  try {
+    const post = await Post.findById(id)
+    if (post) {
+      return res.status(201).send(post)
+    } else {
+      return res.status(404).json({ message: 'Post not Found' })
+    }
+  } catch (err) {
+    return res.status(500).json({ message: 'Some Error Occured' })
+  }
+}

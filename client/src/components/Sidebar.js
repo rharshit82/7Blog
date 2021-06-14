@@ -5,6 +5,7 @@ const Sidebar = ({ postTitles }) => {
     <>
       <div>
         <h2 className='text-center'>Sidebar</h2>
+
         <RecentPosts postTitles={postTitles} />
       </div>
     </>

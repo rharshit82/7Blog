@@ -19,7 +19,10 @@ const HomeScreen = () => {
         if (loading) {
           setPosts(fetch_posts.data)
           setLoading(false)
-          setPostTitles(posts.map((post) => post.title).slice(0, 6))
+          // console.log(
+          //   posts.map((post) => ({ id: post._id, title: post.title }))
+          // )
+          setPostTitles(posts.map((post) => [post.title, post._id]).slice(0, 6))
         }
       } catch (err) {
         console.log(err)
