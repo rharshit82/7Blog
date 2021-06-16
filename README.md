@@ -4,6 +4,7 @@
 7Blog is a minimal blog that is created using MongoDB, ExpressJS - NodejS and ReactJS.
 
 Deployed Link - https://sevenblog.herokuapp.com/
+![7Blog](https://github.com/rharshit82/7Blog/blob/master/uploads/7blog.png?raw=true)
 
 
 ## Features
