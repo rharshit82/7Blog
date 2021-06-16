@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SinglePost from '../components/SinglePost'
 import Loading from '../components/Loading'
+import { useAlert } from 'react-alert'
+
 const PostScreen = () => {
+  const alert = useAlert()
   const [post, setPost] = useState(null)
   const { id } = useParams()
   useEffect(() => {
@@ -12,11 +15,12 @@ const PostScreen = () => {
         const singlePost = await axios.post('/api/fetch_post', { id })
         setPost(singlePost.data)
       } catch (err) {
-        console.log(err)
+        const msg = err.response ? err.response.data.message : err
+        alert.show(msg, { type: 'error' })
       }
     }
     fetchPost()
-  })
+  }, [])
   return <>{post === null ? <Loading /> : <SinglePost post={post} />}</>
 }
 
