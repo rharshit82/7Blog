@@ -8,7 +8,8 @@ Deployed Link - https://sevenblog.herokuapp.com/
 
 
 ## Features
-- Authentication using JWT_SECRET
+- Authentication (using jsonwebtoken and Local Storage)
+- Password saved in database in encrypted format (using bcrypt)
 - Login
 - Registration
 - Dynamic Navigation bar for Login/Logout
