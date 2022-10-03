@@ -3,7 +3,9 @@
 
 7Blog is a minimal blog that is created using MongoDB, ExpressJS - NodejS and ReactJS.
 
-Deployed Link - https://sevenblog.herokuapp.com/
+## Deployed Link
+ https://sevenblog.herokuapp.com
+ 
 ![7Blog](https://github.com/rharshit82/7Blog/blob/master/uploads/7blog.png?raw=true)
 
 
@@ -22,7 +24,7 @@ Deployed Link - https://sevenblog.herokuapp.com/
 - Admin user with seperate login, dashboard etc. (My models and Database have a field for admin already)
 
 ## Usage
-We have used ECMAScript modules in the backend. Make sure you have Nodejs v14.6 and above. Otherwise add "--experimental-modules" flag
+We have used ECMAScript modules in the backend. Make sure you have Nodejs v14.6 and above. Otherwise add "--experimental-modules" flag.
 
 ## Environment Variables
 Create a .env file in the root folder and add the following in that file. I have personally used MongoDB Atlas in the project.
@@ -51,7 +53,7 @@ npm run client
 ```
 
 ## Build
-Run react build script to let react create production build that you can deploy
+Run react build script to let react create production build that you can deploy.
 
 ```
 cd client
