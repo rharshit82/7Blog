@@ -1,7 +1,7 @@
 
 # 7Blog : A Minimal MERN Stack Blog
 
-7Blog is a minimal blog that is created using MongoDB, ExpressJS - NodejS and ReactJS.
+7Blog is a minimal blog that is created using MongoDB, ExpressJS - NodeJS and ReactJS.
 
 ## Deployed Link
  https://sevenblog.herokuapp.com
