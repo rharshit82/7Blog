@@ -21,7 +21,7 @@
 
 ## Future Implementations
 - Delete and Update post
-- Admin user with seperate login, dashboard etc. (My models and Database have a field for admin already)
+- Admin user with seperate login, dashboard etc. (The models and Database have a field for admin already)
 
 ## Usage
 We have used ECMAScript modules in the backend. Make sure you have Nodejs v14.6 and above. Otherwise add "--experimental-modules" flag.
