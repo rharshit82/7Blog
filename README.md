@@ -59,4 +59,8 @@ Run react build script to let react create production build that you can deploy.
 cd client
 npm run build
 ```
+## npm config
+# npm config set <key>=<value> [<key>=<value> ...]
+# npm config get [<key> [<key> ...]]
+# npm config delete <key> [<key> ...]
 
