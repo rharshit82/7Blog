@@ -51,6 +51,12 @@ npm run server
 # Run client only
 npm run client
 ```
+## Npm Config
+# npm config set <key>=<value> [<key>=<value> ...]
+# npm config get [<key> [<key> ...]]
+# npm config delete <key> [<key> ...]
+# npm config list [--json]
+
 
 ## Build
 Run react build script to let react create production build that you can deploy.
